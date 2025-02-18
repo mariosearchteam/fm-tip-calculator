@@ -38,7 +38,7 @@
             <label for="bill" class="text-cyan-800 text-base block text-left my-2">Bill</label>
             <div class="relative w-full">
                 <span class="absolute inset-y-0 left-4 flex items-center text-cyan-700"><img src="./images/icon-dollar.svg"></span>
-                <input type="text" id="bill" class="w-full bg-cyan-500 text-cyan-900 text-right py-1 px-4 pl-8 pr-4 rounded" placeholder="0">
+                <input type="text" id="bill" class="w-full bg-cyan-500 text-cyan-900 text-right py-1 px-4 pl-8 pr-4 rounded focus-visible:border-strong-cyan border-2 border-cyan-500 focus-visible:outline-hidden" placeholder="0">
             </div>
         </div>
         <div class="mt-8">
@@ -46,36 +46,39 @@
             <div class="grid grid-cols-2 gap-4 text-white">
         <div>
             <input type="radio" id="tip5" name="tip" value="5" class="tipButton peer sr-only"> 
-            <label for="tip5" class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">5%</label>
+            <label for="tip5" class="bg-cyan-900 cursor-pointer hover:bg-cyan-600 hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">5%</label>
         </div>
         <div>
             <input type="radio" id="tip10" name="tip" value="10" class="tipButton peer sr-only" >
-            <label for="tip10" class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">10%</label>
+            <label for="tip10" class="bg-cyan-900 cursor-pointer hover:bg-cyan-600 hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">10%</label>
         </div>
         <div>
             <input type="radio" id="tip15" name="tip" value="15" class="tipButton peer sr-only" >
-            <label for="tip15" class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">15%</label>
+            <label for="tip15" class="bg-cyan-900 cursor-pointer hover:bg-cyan-600 hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">15%</label>
         </div>
         <div>
             <input type="radio" id="tip25" name="tip" value="25" class="tipButton peer sr-only" >
-            <label for="tip25" class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">25%</label>
+            <label for="tip25" class="bg-cyan-900 cursor-pointer hover:bg-cyan-600 hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">25%</label>
         </div>
         <div>
             <input type="radio" id="tip50" name="tip" value="50" class="tipButton peer sr-only" >
-            <label for="tip50" class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">50%</label>
+            <label for="tip50" class="bg-cyan-900 cursor-pointer hover:bg-cyan-600 hover:text-cyan-900 rounded py-1 peer-checked:bg-strong-cyan peer-checked:text-cyan-900 block text-center">50%</label>
         </div>
-                <input type="text" id="customTip" class="w-full bg-cyan-500 text-cyan-900 py-1 px-0 text-center rounded-lg placeholder:text-cyan-800" placeholder="Custom" oninput="setTip(this.value)">
+            <input type="text" id="customTip" class="border-2 border-cyan-500 focus-visible:border-strong-cyan focus-visible:outline-hidden w-full bg-cyan-500 text-cyan-900 py-1 px-0 text-center rounded-lg placeholder:text-cyan-800" placeholder="Custom" oninput="setTip(this.value)">
             </div>
         </div>
         <div class="mt-8">
-            <label for="people" class="text-cyan-800 text-base block text-left my-2">Number of People</label>
+            <div class="flex justify-between">
+                <label for="people" class="text-cyan-800 text-base block text-left my-2 ">Number of People</label>
+                <p id="error" class="text-red-500 text-base my-2"></p>
+            </div>
             <div class="relative w-full">
                 <span class="absolute inset-y-0 left-4 flex items-center text-cyan-700"><img src="./images/icon-person.svg"></span>
-                <input type="text" id="people" class="w-full bg-cyan-500 text-cyan-900 text-right py-1 px-4 pl-8 pr-4 rounded" placeholder="0" >
+                <input type="text" id="people" class="border-2 border-cyan-500 w-full bg-cyan-500 text-cyan-900 text-right py-1 px-4 pl-8 pr-4 rounded focus-visible:border-strong-cyan focus-visible:outline-hidden border-cyan-500" placeholder="0" >
             </div>
         </div>
     </div>
-    <div class="mt-8 md:mt-0 bg-cyan-900 rounded-xl p-4 md p-8">
+    <div class="mt-8 md:mt-0 bg-cyan-900 rounded-xl p-4 md p-8 flex flex-col justify-between">
         <div>
             <div class="mt-6 flex justify-between">
                 <div>
@@ -96,8 +99,7 @@
                 </div>
             </div>
         </div>
-        <button class="bg-strong-cyan uppercase text-xl text-cyan-900 w-full rounded py-2 mt-8" onclick="reset()">Reset</button>
-        
+        <button class="bg-strong-cyan uppercase text-xl text-cyan-900 w-full rounded py-2 mt-8 hover:bg-cyan-600 cursor-pointer" onclick="reset()">Reset</button>
     </div>
 
 </section>

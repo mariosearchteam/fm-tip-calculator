@@ -5,40 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+      <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+      <!--
+      - Strong cyan: hsl(172, 67%, 45%)
+
+### Neutral
+Font ### Body Copy
+
+- Font size (form inputs): 24px
+
+### Font
+
+- Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
+- Weights: 700
+      -->
+          <style type="text/tailwindcss">
+                @theme {        
+                    --color-cyan-900: hsl(183, 100%, 15%);   
+                    --color-cyan-800: hsl(186, 14%, 43%);
+                    --color-cyan-700: hsl(184, 14%, 56%);
+                    --color-cyan-600: hsl(185, 41%, 84%);
+                    --color-cyan-500: hsl(189, 41%, 97%);
+                    --color-strong-cyan: hsl(172, 67%, 45%);
+                    --color-white: hsl(0, 0%, 100%);   
+
+                    --font-family: 'Space Mono', monospace;
+                    }    
+        </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap">
   <title>Frontend Mentor | Tip calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+
 </head>
-<body>
+<body class="font-family bg-cyan-600 text-[24px] m-auto text-center">
+    <main>
+        <header>
+<h1 class="uppercase text-cyan-900 tracking-[10px] mt-12">Spli<br>tter</h1>
+</header>
 
-  Bill
+<section class="bg-white rounded-3xl p-8 mt-8">
+    <div class="">
+        <label for="bill" class="text-cyan-800 text-base block text-left my-2">Bill</label>
+        <div class="relative w-full">
+            <span class="absolute inset-y-0 left-4 flex items-center text-cyan-700"><img src="./images/icon-dollar.svg"></span>
+            <input type="text" id="bill" class="w-full bg-cyan-500 text-cyan-900 text-right py-1 px-4 pl-8 pr-4 rounded" placeholder="0">
+        </div>
+    </div>
+    <div class="mt-8">
+        <label for="tip" class="text-cyan-800 text-base block text-left my-2">Select Tip %</label>
+         <div class="grid grid-cols-2 gap-4 text-white">
+            <button class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1" onclick="setTip(5)">5%</button>
+            <button class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1" onclick="setTip(10)">10%</button>
+            <button class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1" onclick="setTip(15)">15%</button>
+            <button class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1" onclick="setTip(25)">25%</button>
+            <button class="bg-cyan-900 cursor-pointer hover:bg-strong-cyan hover:text-cyan-900 rounded py-1" onclick="setTip(50)">50%</button>
+            <input type="text" id="tip" class="w-full bg-cyan-500 text-cyan-900 py-1 px-0 text-center rounded-lg placeholder:text-cyan-800" placeholder="Custom" oninput="setCustomTip(this.value)">
+        </div>
+    </div>
+    <div class="mt-8">
+        <label for="people" class="text-cyan-800 text-base block text-left my-2">Number of People</label>
+        <div class="relative w-full">
+            <span class="absolute inset-y-0 left-4 flex items-center text-cyan-700"><img src="./images/icon-person.svg"></span>
+            <input type="text" id="people" class="w-full bg-cyan-500 text-cyan-900 text-right py-1 px-4 pl-8 pr-4 rounded" placeholder="0" oninput="updatePeople(this.value)">
+        </div>
+    </div>
+    <div class="mt-8 bg-cyan-900 rounded-xl p-4">
+        <div class="mt-6 flex justify-between">
+            <div>
+                <p class="text-base text-left text-white">Tip Amount</p>
+                <p class="text-xs text-left text-cyan-700">/ person</p>
+            </div>
+            <div>
+                <p class="text-strong-cyan text-3xl font-bold" id="tipAmount">$0.00</p>
+            </div>
+        </div>
+        <div class="flex justify-between mt-8">
+            <div>
+                <p class="text-base text-left text-white">Total</p>
+                <p class="text-xs text-left text-cyan-700">/ person</p>
+            </div>
+            <div>
+                <p class="text-strong-cyan text-3xl font-bold" id="totalAmount">$0.00</p>
+            </div>
+        </div>
+        <button class="bg-strong-cyan uppercase text-xl text-cyan-900 w-full rounded py-2 mt-8" onclick="reset()">Reset</button>
+        
+    </div>
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+</section>
+</main>
 
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<script src="./script.js"></script>
 </body>
 </html>
